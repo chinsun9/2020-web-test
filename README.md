@@ -137,7 +137,7 @@
 
 ### 클론해서 돌려보기
 
-- 다운받기
+- [다운받기](https://github.com/chinsun9/2020-web-test/archive/master.zip)
 - 디비 생성하기 ; sqldump.sql 의 내용으로 생성
 - nodejs 패키지 설치하기 `npm i`
 - 도로명주소 api key 갱신하기
