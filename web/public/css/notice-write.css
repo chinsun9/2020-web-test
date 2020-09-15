@@ -1,0 +1,30 @@
+form input {
+  margin-bottom: 10px;
+}
+
+form button {
+  margin-left: 10px;
+}
+
+button {
+  background-color: #5252ad;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+
+  max-width: 100px;
+  max-height: 30px;
+  border: 2px solid #5f5fc4;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #252552;
+  color: white;
+}

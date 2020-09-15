@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>register</title>
+
+    <!-- Custom fonts for this template-->
+    <link
+      href="vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template-->
+    <!-- <link href="css/monitoring.css" rel="stylesheet" /> -->
+    <link href="css/register.css" rel="stylesheet" />
+  </head>
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <ul
+        class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+        id="accordionSidebar"
+      >
+        <!-- Sidebar - Brand -->
+        <a
+          class="sidebar-brand d-flex align-items-center justify-content-center"
+          style="padding: 0px;"
+        >
+          <div class="sidebar-brand-text mx-3">
+            <h4>TestSystem</h4>
+          </div>
+        </a>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item active">
+          <a class="nav-link">
+            <span>회원가입</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="">
+            <span>공지사항</span>
+          </a>
+        </li>
+      </ul>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <div class="container-fluid">
+            <div class="row log-out">
+              <a href="/login"><span>로그인</span></a>
+            </div>
+            <div class="row content-header">
+              <div class="col-8">
+                <div class="row"><h2>회원가입</h2></div>
+                <div class="row">TestSystem</div>
+              </div>
+              <div class="col-4">
+                <div class="menu-info">
+                  HOME > 회원가입
+                </div>
+              </div>
+            </div>
+            <div class="row content-main">
+              <div class="container p-2">
+                <div class="row border-bottom-3 pl-3">
+                  <h4>회원가입</h4>
+                </div>
+                <div class="row pl-md-5 pt-4">
+                  <form name="registerForm" class="w100" method="post">
+                    <div class="container-fluid wrapper1 w-100">
+                      <div class="row box">
+                        <h5>개인정보 동의</h5>
+                        <textarea rows="6" readonly>
+제1조(목적)
+본 회원약관은 샘플약관(이하 '갑'라 한다)이 운영하는 인터넷관련 서비스(이하 '서비스'라 한다)를 이용함에 있어 관리자와 이용자(이하 '회원'라 한다)의 권리, 의무 및 책임사항을 규정함을 목적으로 한다.
+제2조 (약관의 효력)
+1.본 약관은 '갑'에 회원 가입 시 회원들에게 통지함으로써 효력을 발생합니다.
+2.'갑'은 이 약관의 내용을 변경할 수 있으며, 변경된 약관은 제1항과 같은 방법으로 공지 또는 통지함으로써 효력을 발생합니다.
+3.약관의 변경사항 및 내용은 '갑'의 홈페이지에 게시하는 방법으로 공시합니다.
+제3조 (약관 이외의 준칙)
+이 약관에 명시되지 않은 사항이 전기 통신 기본법, 전기통신 사업법, 기타 관련 법령에 규정되어 있는 경우 그 규정에 따릅니다.
+제4조 (이용계약의 체결)
+회원 가입 시 회원 약관 밑에 있는 동의버튼을 누르면 약관에 동의하여 이 계약이 체결된 것으로 간주한다.
+제5조 (용어의 정의)
+이 약관에서 사용하는 용어의 정의는 다음과 같습니다.
+1.회원: '갑'과 서비스 이용에 관한 계약을 체결한 자
+2.아이디(ID): 회원 식별과 회원의 서비스 이용을 위하여 회원이 선정하고 '갑'이 승인하는 문자와 숫자의 조합
+3.비밀번호: 회원이 통신상의 자신의 비밀을 보호하기 위해 선정한 문자와 숫자의 조합
+                        </textarea>
+                      </div>
+                      <div>
+                        <label for="agree" class="pl-md-2">
+                          <input
+                            class="m-1"
+                            type="checkbox"
+                            id="agree"
+                            name="agree"
+                          />위 약관에 동의합니다.</label
+                        >
+                      </div>
+                      <div class="row box pt-5">
+                        <h5>가입정보</h5>
+                        <div class="container-fluid p-3">
+                          <div class="row field">
+                            <div class="col-2">
+                              아이디
+                              <span id="chkuid" class="chk-require"
+                                ><i class="fas fa-check"></i
+                              ></span>
+                            </div>
+                            <div class="col-5">
+                              <input
+                                name="uid"
+                                type="text"
+                                maxlength="20"
+                                required
+                              />
+                            </div>
+                            <div class="col-5">
+                              <button
+                                type="button"
+                                class="btn-dark"
+                                onclick="chkDupe()"
+                                value="0"
+                              >
+                                중복확인
+                              </button>
+                            </div>
+                          </div>
+                          <div class="row field">
+                            <div class="col-2">
+                              비밀번호
+                              <span id="chkpass" class="chk-require"
+                                ><i class="fas fa-check"></i
+                              ></span>
+                            </div>
+                            <div class="col-5">
+                              <input
+                                name="pass"
+                                type="password"
+                                maxlength="20"
+                                minlength="8"
+                                required
+                              />
+                            </div>
+                            <div class="col-5 password-notice">
+                              * 비밀번호는 공백을 제외한 영문, 숫자, 특수문자
+                              조합으로 8자리 이상
+                            </div>
+                          </div>
+                          <div class="row field">
+                            <div class="col-2">
+                              비밀번호 확인
+                              <span id="chkpass2" class="chk-require"
+                                ><i class="fas fa-check"></i
+                              ></span>
+                            </div>
+                            <div class="col-5">
+                              <input
+                                name="pass2"
+                                type="password"
+                                maxlength="20"
+                                required
+                              />
+                            </div>
+                            <div class="col-5"></div>
+                          </div>
+                          <div class="row field">
+                            <div class="col-2">이름</div>
+                            <div class="col-5">
+                              <input name="user_name" type="text" required />
+                            </div>
+                            <div class="col-5"></div>
+                          </div>
+                          <div class="row field">
+                            <div class="col-2">이메일</div>
+                            <div class="col-5">
+                              <input
+                                name="user_mail"
+                                type="email"
+                                maxlength="30"
+                                required
+                              />
+                            </div>
+                            <div class="col-5"></div>
+                          </div>
+                          <div class="row field">
+                            <div class="col-2">회사명</div>
+                            <div class="col-5">
+                              <input
+                                name="company_name"
+                                type="text"
+                                maxlength="50"
+                                required
+                              />
+                            </div>
+                            <div class="col-5"></div>
+                          </div>
+                          <div class="row field">
+                            <div class="col-2">회사주소</div>
+                            <div class="col-5">
+                              <input
+                                name="company_address1"
+                                id="roadAddrPart1"
+                                placeholder="도로명 찾기 버튼을 이용해주세요"
+                                readonly
+                                type="text"
+                                required
+                              />
+                            </div>
+                            <div class="col-5">
+                              <div class="row">
+                                <div class="col-8">
+                                  <input
+                                    name="company_address2"
+                                    placeholder="상세주소"
+                                    type="text"
+                                    maxlength="100"
+                                    required
+                                  />
+                                </div>
+                                <div class="col-4">
+                                  <button
+                                    type="button"
+                                    onclick="goJusoPopup()"
+                                    class="btn-dark"
+                                    value="0"
+                                  >
+                                    도로명 찾기
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row box center">
+                        <button
+                          type="button"
+                          class="btn-dark"
+                          onclick="registerFormSumbit()"
+                          value="0"
+                        >
+                          가입하기
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <%- include ('inc/footer')%>
+
+        <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- my script -->
+    <script src="js/register.js"></script>
+    <script src="js/juso-api.js"></script>
+  </body>
+</html>

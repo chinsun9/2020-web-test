@@ -1,0 +1,155 @@
+/* test */
+.box {
+  /* height: 300px; */
+  display: block;
+}
+.red {
+  background-color: red;
+}
+.blue {
+  background-color: blue;
+}
+/* end of test */
+
+/* sidebar */
+
+#accordionSidebar {
+  background-color: #f5f5f6;
+  background-image: none;
+}
+.sidebar-dark .sidebar-brand {
+  color: black;
+}
+
+#accordionSidebar > li > a.nav-link {
+  text-align: right;
+}
+
+#accordionSidebar li {
+  background-color: #d4d4d4;
+}
+#accordionSidebar li.active {
+  background-color: #a2a2a2;
+}
+#accordionSidebar > a {
+  /* padding: 0px; */
+  height: 130px;
+}
+/* end of sidebar */
+
+/* content */
+.log-out {
+  display: block;
+
+  background-color: #001064;
+  text-align: right;
+  padding: 10px 20px;
+}
+.log-out > a {
+  color: white;
+}
+
+.content-header {
+  padding: 20px 30px;
+  padding-bottom: 0px;
+
+  border-bottom: groove;
+}
+.content-header h2 {
+  color: black;
+  font-weight: bold;
+
+  margin-bottom: 0px;
+}
+.content-header .menu-info {
+  display: block;
+  text-align: right;
+
+  margin-bottom: 0px;
+}
+
+.content-main {
+  padding: 20px 30px;
+  padding-bottom: 0px;
+}
+.content-main div.row.box.pt-5 input {
+  width: 100%;
+}
+
+.field {
+  margin-bottom: 10px;
+
+  min-width: 500px;
+}
+
+/* 인풋 필드 검사 체크 아이콘 */
+.chk-require {
+  display: none;
+}
+.chk-successful {
+  float: right;
+  display: block;
+  color: green;
+}
+
+/* end of content */
+
+/* override css */
+.container-fluid {
+  padding: 0;
+  margin: 0;
+}
+
+#accordionSidebar > li.nav-item > a > span {
+  color: black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #000000cc;
+  font-weight: bold;
+}
+
+.border-bottom-3 {
+  border-bottom: 6px solid black;
+}
+
+.w100 div,
+form,
+textarea {
+  width: 100%;
+}
+
+.password-notice {
+  height: 10px;
+  font-size: small;
+}
+
+.btn-dark {
+  min-width: 120px;
+}
+
+.center {
+  text-align: center;
+}
+
+.sidebar .sidebar-brand {
+  text-transform: none;
+}
+
+/* api test button */
+.sidebar .btn-api-test {
+  place-self: center;
+  margin-top: 50px;
+}
+
+.sidebar .btn-api-test button {
+  border-radius: 0;
+  padding: 10px;
+  min-width: 140px;
+}
+
+/* end of override css */

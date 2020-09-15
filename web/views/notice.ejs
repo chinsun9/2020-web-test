@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>notice</title>
+
+    <!-- Custom fonts for this template-->
+    <link
+      href="/vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles for this template-->
+    <link href="/css/sb-admin-2.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template-->
+    <!-- <link href="css/monitoring.css" rel="stylesheet" /> -->
+    <link href="/css/register.css" rel="stylesheet" />
+    <link href="/css/notice.css" rel="stylesheet" />
+  </head>
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <%- include ('inc/sidebar') %>
+
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <div class="container-fluid">
+            <div class="row log-out">
+              <a href="/logout"><span>로그아웃</span></a>
+            </div>
+            <div class="row content-header">
+              <div class="col-8">
+                <div class="row"><h2>공지사항</h2></div>
+                <div class="row">TestSystem</div>
+              </div>
+              <div class="col-4">
+                <div class="menu-info">HOME > 공지사항</div>
+              </div>
+            </div>
+            <div class="row content-main">
+              <div class="container p-2">
+                <div class="row border-bottom-3 pl-3">
+                  <h4>공지사항</h4>
+                </div>
+                <div class="row border-bottom-3 pl-3 searchform">
+                  <div class="col-8">
+                    <div class="row">
+                      <div class="col-5">제목</div>
+                      <div class="col-7">
+                        <% if(data.keyword){ %>
+                        <input
+                          type="text"
+                          id="keyword"
+                          value="<%=data.keyword%>"
+                        />
+                        <% }else{ %>
+
+                        <input type="text" id="keyword" value="" />
+                        <% } %>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-5">작성자 선택</div>
+                      <div class="col-7">
+
+                        <% if(data.writer){ %>
+                          
+                        <select
+                        name="user_name"
+                        id="writer"
+                      >
+                          />
+                          <% }else{ %>
+  
+                            <select
+                            name="user_name"
+                            id="writer"
+                          >
+                          <% } %>
+
+                          <option value="%">전체</option>
+                          <% for (const name of usernames) { %>
+
+
+                            <% if(data.writer == name){ %>
+                              <option value="<%=name%>" selected><%=name%></option>
+
+                                <% }else{ %>
+                                  <option value="<%=name%>" ><%=name%></option>
+
+                                <% } %>
+
+                          <% } %>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-4 right">
+                    <button
+                      class="btn-search button"
+                      type="button"
+                      id="cut-6"
+                      onclick="goSearch()"
+                    >
+                      검색
+                    </button>
+                    <script>
+                      function goSearch() {
+                        let keyword = document.getElementById('keyword').value;
+                        let writer = document.getElementById('writer').value;
+                        keyword = encodeURIComponent(keyword);
+                        writer = encodeURIComponent(writer);
+                        location.href = `/notice/search?keyword=${keyword}&writer=${writer}`;
+                      }
+                    </script>
+                  </div>
+                </div>
+                <div class="row pl-md-5 pt-4">
+                  <div class="container-fluid wrapper1 w-100">
+                    <div class="row">
+                      <div class="col-8">
+                        <%=page%> / <% let totalpage=0; if(articlesLength%10 ==
+                        0){ totalpage = Math.ceil(articlesLength/10);-1 }else{
+                        totalpage = Math.ceil(articlesLength/10) } %>
+                        <%=totalpage%>Page 총 <%=articlesLength%>건의 자료가
+                        존재합니다.
+                      </div>
+                      <div class="col-4 right">
+                        <button
+                          class="button btn-search btn-new-notice"
+                          onclick="location.href='/notice/write'"
+                        >
+                          신규 작성 >
+                        </button>
+                      </div>
+                    </div>
+                    <div class="row box pt-5 pb-5 tablebox">
+                      <table id="article-table">
+                        <thead>
+                          <tr>
+                            <colgroup>
+                              <col width="10%" />
+                              <col width="50%" />
+                              <col width="10%" />
+                              <col width="20%" />
+                            </colgroup>
+                            <th>번호</th>
+                            <th>제목</th>
+                            <th>작성자</th>
+                            <th>작성일</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <% for (const article of articles) { %>
+
+                          <tr>
+                            <td><%=article.idx%></td>
+                            <td>
+                              <a href="/notice/notice-detail?idx=<%=article.idx%>">
+                                <div style="height:100%;width:100%">
+                                  <%=article.title%>
+                                </div>
+                              </a>
+                            </td>
+                            <td><%=article.write_name%></td>
+                            <td><%=article.insert_date%></td>
+                          </tr>
+                          <% } %>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="row box center">
+                      <div
+                        class="dataTables_paginate paging_simple_numbers center"
+                        id="dataTable_paginate"
+                      >
+                        <ul class="pagination">
+                          <% if(page == 1) { %>
+
+                          <li
+                            class="paginate_button page-item previous disabled"
+                            id="dataTable_previous"
+                          >
+                            <a
+                              href="/notice?page=1"
+                              aria-controls="dataTable"
+                              data-dt-idx="0"
+                              tabindex="0"
+                              class="page-link"
+                            >
+                              &lt;&lt;</a
+                            >
+                          </li>
+                          <li
+                            class="paginate_button page-item previous disabled"
+                            id="dataTable_previous"
+                          >
+                            <a
+                              href="/notice?page=<%=parseInt(page)-1%>"
+                              aria-controls="dataTable"
+                              data-dt-idx="0"
+                              tabindex="0"
+                              class="page-link"
+                              >&lt;</a
+                            >
+                          </li>
+                          <% } else { %>
+
+                          <li
+                            class="paginate_button page-item previous"
+                            id="dataTable_previous"
+                          >
+                            <a
+                              href="/notice?page=1"
+                              aria-controls="dataTable"
+                              data-dt-idx="0"
+                              tabindex="0"
+                              class="page-link"
+                            >
+                              &lt;&lt;</a
+                            >
+                          </li>
+                          <li
+                            class="paginate_button page-item previous"
+                            id="dataTable_previous"
+                          >
+                            <a
+                              href="/notice?page=<%=parseInt(page)-1%>"
+                              aria-controls="dataTable"
+                              data-dt-idx="0"
+                              tabindex="0"
+                              class="page-link"
+                              >&lt;</a
+                            >
+                          </li>
+                          <% } %> <% for(var i=1;i<=totalpage;i++){ let
+                          isdisabled=''; if(i == page){ isdisabled= 'disabled' }
+                          %>
+                          <li class="paginate_button page-item <%=isdisabled%>">
+                            <a
+                              href="/notice?page=<%=i%>"
+                              aria-controls="dataTable"
+                              data-dt-idx="<%=i%>"
+                              tabindex="0"
+                              class="page-link"
+                              ><%=i%></a
+                            >
+                          </li>
+                          <% } %> <% if(parseInt(page) >=
+                          (Math.ceil(articlesLength/10))) { %>
+                          <li
+                            class="paginate_button page-item next disabled"
+                            id="dataTable_next"
+                          >
+                            <a
+                              href="/notice?page=<%=parseInt(page)+1%>"
+                              aria-controls="dataTable"
+                              data-dt-idx="7"
+                              tabindex="0"
+                              class="page-link"
+                              >&gt;</a
+                            >
+                          </li>
+                          <li
+                            class="paginate_button page-item next disabled"
+                            id="dataTable_next"
+                          >
+                            <a
+                              href="/notice?page=<%=(Math.ceil(articlesLength/10))%>"
+                              aria-controls="dataTable"
+                              data-dt-idx="7"
+                              tabindex="0"
+                              class="page-link"
+                              >&gt;&gt;</a
+                            >
+                          </li>
+                          <% } else { %>
+                          <li
+                            class="paginate_button page-item next"
+                            id="dataTable_next"
+                          >
+                            <a
+                              href="/notice?page=<%=parseInt(page)+1%>"
+                              aria-controls="dataTable"
+                              data-dt-idx="7"
+                              tabindex="0"
+                              class="page-link"
+                              >&gt;</a
+                            >
+                          </li>
+                          <li
+                            class="paginate_button page-item next"
+                            id="dataTable_next"
+                          >
+                            <a
+                              href="/notice?page=<%=(Math.ceil(articlesLength/10))%>"
+                              aria-controls="dataTable"
+                              data-dt-idx="7"
+                              tabindex="0"
+                              class="page-link"
+                              >&gt;&gt;</a
+                            >
+                          </li>
+                          <% } %>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <%- include ('inc/footer')%>
+
+        <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <script>
+      const url_parameter = document.location.href.split('?')[1];
+      let paginateURL = url_parameter;
+      if (url_parameter.indexOf('page=') != -1) {
+        paginateURL = paginateURL.substring(0, url_parameter.indexOf('page='));
+        paginateURL.lastIndexOf('&') == paginateURL.length - 1
+          ? (paginateURL = paginateURL.slice(0, paginateURL.length - 1))
+          : null;
+      }
+
+      paginateURL = `${document.location.pathname}?${paginateURL}&`;
+      console.log(paginateURL);
+
+      let arr = $('#dataTable_paginate > ul a');
+      console.log(arr.length);
+      for (let i = 0; i < arr.length; i++) {
+        let tmp = arr[i].pathname + arr[i].search;
+        arr[i].href = tmp.replace('/notice?', paginateURL);
+      }
+    </script>
+
+    <!-- my script -->
+  </body>
+</html>

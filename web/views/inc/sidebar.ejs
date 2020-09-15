@@ -1,0 +1,39 @@
+<ul
+  class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+  id="accordionSidebar"
+>
+  <!-- Sidebar - Brand -->
+  <a
+    class="sidebar-brand d-flex align-items-center justify-content-center"
+    style="padding: 0px"
+  >
+    <div class="sidebar-brand-text mx-3">
+      <h4 onclick="location.href='/'" style="cursor: pointer">TestSystem</h4>
+    </div>
+  </a>
+
+  <!-- Nav Item - Pages Collapse Menu -->
+
+  <% if(0){ %>
+  <li class="nav-item active">
+    <a class="nav-link">
+      <span>회원가입</span>
+    </a>
+  </li>
+  <% } %>
+
+  <li class="nav-item active">
+    <a class="nav-link" href="/notice">
+      <span>공지사항</span>
+    </a>
+  </li>
+
+  <div class="btn-api-test">
+    <button
+      class="button btn-search btn-new-notice"
+      onclick="location.href='/api'"
+    >
+      API Test
+    </button>
+  </div>
+</ul>

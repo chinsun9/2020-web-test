@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Custom fonts for this template-->
+    <link
+      href="/vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles for this template-->
+    <link href="/css/sb-admin-2.min.css" rel="stylesheet" />
+    <title>Login</title>
+
+    <link rel="stylesheet" href="/css/login.css" />
+  </head>
+  <body>
+    <div class="container loginform">
+      <div class="m-5"></div>
+      <div class="row center m-lg-5">
+        <h2>로그인</h2>
+      </div>
+      <form name="login" action="/login" method="post">
+        <div class="row">
+          <div class="col-8">
+            <div class="row">
+              <label for="uname"><b>ID</b></label>
+              <input type="text" placeholder="" name="uid" required="" />
+            </div>
+            <div class="row">
+              <label for="psw"><b>PW</b></label>
+              <input type="password" placeholder="" name="pass" required="" />
+            </div>
+          </div>
+          <div class="col-4">
+            <button class="btn-login button" type="submit" onclick="chkLogin()">
+              로그인 >
+            </button>
+          </div>
+        </div>
+        <div class="row mb-5"><a href="/register">회원가입</a></div>
+        <div class="row message center"><%=message%></div>
+      </form>
+    </div>
+    <%- include ('inc/footer')%>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/js/login.js"></script>
+  </body>
+</html>
