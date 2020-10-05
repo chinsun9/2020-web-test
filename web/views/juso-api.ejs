@@ -21,33 +21,6 @@
         roadAddrPart1 = query.roadAddrPart1
         addrDetail = query.addrDetail
     }
-
-	// inputYn = rquery.inputYn
-	// roadAddrPart1 = request.getParameter("roadAddrPart1"); 
-	// roadAddrPart2 = request.getParameter("roadAddrPart2"); 
-	// engAddr = request.getParameter("engAddr"); 
-	// jibunAddr = request.getParameter("jibunAddr"); 
-	// zipNo = request.getParameter("zipNo"); 
-	// addrDetail = request.getParameter("addrDetail"); 
-	// admCd    = request.getParameter("admCd");
-	// rnMgtSn = request.getParameter("rnMgtSn");
-	// bdMgtSn  = request.getParameter("bdMgtSn");
-	// detBdNmList  = request.getParameter("detBdNmList");	
-	// bdNm  = request.getParameter("bdNm");
-	// bdKdcd  = request.getParameter("bdKdcd");
-	// siNm  = request.getParameter("siNm");
-	// sggNm  = request.getParameter("sggNm");
-	// emdNm  = request.getParameter("emdNm");
-	// liNm  = request.getParameter("liNm");
-	// rn  = request.getParameter("rn");
-	// udrtYn  = request.getParameter("udrtYn");
-	// buldMnnm  = request.getParameter("buldMnnm");
-	// buldSlno  = request.getParameter("buldSlno");
-	// mtYn  = request.getParameter("mtYn");
-	// lnbrMnnm  = request.getParameter("lnbrMnnm");
-	// lnbrSlno  = request.getParameter("lnbrSlno");
-    // emdNo  = request.getParameter("emdNo");
-    
     console.log(`inputYn`,inputYn)
 %>
 
@@ -62,7 +35,6 @@
         document.form.returnUrl.value = url;
         document.form.resultType.value = resultType;
         document.form.action = 'http://www.juso.go.kr/addrlink/addrLinkUrl.do'; //인터넷망
-        //document.form.action="http://www.juso.go.kr/addrlink/addrMobileLinkUrl.do"; //모바일 웹인 경우, 인터넷망
         document.form.submit();
       } else {
         opener.jusoCallBack(roadAddrPart1.value,addrDetail.value);
@@ -78,11 +50,6 @@
       <input type="hidden" id="confmKey" name="confmKey" value="" />
       <input type="hidden" id="returnUrl" name="returnUrl" value="" />
       <input type="hidden" id="resultType" name="resultType" value="" />
-      <!-- 해당시스템의 인코딩타입이 EUC-KR일경우에만 추가 START-->
-      <!-- 
-		<input type="hidden" id="encodingType" name="encodingType" value="EUC-KR"/>
-		 -->
-      <!-- 해당시스템의 인코딩타입이 EUC-KR일경우에만 추가 END-->
     </form>
   </body>
 </html>

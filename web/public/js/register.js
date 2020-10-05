@@ -15,17 +15,18 @@ function chkID() {
 
 function chkName() {
   // 이름 문자열 유효성 검사
-  var idRegExp = /^[가-힣0-9]\s[가-힣0-9]|[a-zA-Z0-9]\s[a-zA-Z0-9]$/;
+  var idRegExp = /^[가-힣0-9]|[a-zA-Z0-9]$/;
 
   if (form.user_name.value.length > 30 || form.user_name.value.length <= 2) {
-    alert('이름은 2자 이상 30자 미만으로 해주세요.');
+    alert('이름은 3자 이상 30자 미만으로 해주세요.');
     return;
   }
 
   if (!idRegExp.test(form.user_name.value)) {
     alert(
-      '이름은 공백을 영문, 한글, 숫자만 가능하며 중앙에 공백 하나를 포함할 수 있습니다. 한글은 2 ~ 14글자, 영문은 (2 ~ 30글자)로 입력해 주세요.'
+      '이름은 영문, 한글, 숫자만 가능합니다. 한글은 2 ~ 14글자, 영문은 (2 ~ 30글자)로 입력해 주세요.'
     );
+    form.user_name.focus();
     return;
   }
 

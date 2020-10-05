@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const client = require('../utils/mysql');
+const myDAO = require('../utils/myDAO');
 
 router.get('/', (req, res) => {
   res.render('register', {});
@@ -13,22 +13,19 @@ router.get('/chkID', (req, res) => {
 
   // body안에 담아 보내는 것은 post
 
-  const query = 'select * from user where uid=?';
-  const queryArgs = [req.query.uid];
-  const userInfo = client.query(query, queryArgs)[0];
+  const userInfo = myDAO.selectUserWithUID(req.query.uid);
   console.log(userInfo);
   if (!userInfo) {
     result = 'ok';
   }
 
   res.json(result);
+  return;
 });
 
 router.post('/', (req, res) => {
   console.log(req.body);
   // 회원가입 프로세스
-
-  let tmp = req.body;
 
   const {
     uid,
@@ -40,27 +37,20 @@ router.post('/', (req, res) => {
     company_address2,
   } = req.body;
 
-  const user_state = 'N';
-  const update_uid = null;
-
-  const query =
-    'INSERT INTO user(uid,pass,user_name,user_mail,company_name,company_address1,company_address2,user_state,update_uid) VALUES (?,?,?,?,?,?,?,?,?)';
-  const queryArgs = [
-    uid,
-    pass,
-    user_name,
-    user_mail,
-    company_name,
-    company_address1,
-    company_address2,
-    user_state,
-    update_uid,
-  ];
   let result;
   let message;
   let nexturl;
+
   try {
-    client.query(query, queryArgs);
+    myDAO.insertUser({
+      uid,
+      pass,
+      user_name,
+      user_mail,
+      company_name,
+      company_address1,
+      company_address2,
+    });
 
     result = 'ok';
     message = '가입이 완료되었습니다.';

@@ -30,108 +30,62 @@
 
 ### 디렉터리 구조
 
-    root
-    ├── bin
-    │   └── www
-    ├── public
-    │   ├── css
-    │   │   ├── plugins
-    │   │   │   ├── animation.css
-    │   │   │   ├── bicon.min.css
-    │   │   │   ├── fakeloader.css
-    │   │   │   ├── fancybox.css
-    │   │   │   ├── font-awesome.min.css
-    │   │   │   ├── fotorama.css
-    │   │   │   ├── jquery-ui.min.css
-    │   │   │   ├── lightbox.css
-    │   │   │   ├── mainmenu.css
-    │   │   │   ├── material-design-iconic-font.min.css
-    │   │   │   ├── nivo-preview-2.css
-    │   │   │   ├── nivo-slider.css
-    │   │   │   ├── owl.carousel.min.css
-    │   │   │   ├── owl.theme.default.min.css
-    │   │   │   ├── pe-icon-7-stroke.css
-    │   │   │   ├── simple-line-icons.css
-    │   │   │   └── slick.min.css
-    │   │   ├── bootstrap.min.css
-    │   │   ├── login.css
-    │   │   ├── notice-write.css
-    │   │   ├── notice.css
-    │   │   ├── plugins.css
-    │   │   ├── register.css
-    │   │   └── sb-admin-2.min.css
-    │   ├── images
-    │   │   └── icons
-    │   │       ├── close.png
-    │   │       ├── loading.gif
-    │   │       ├── next.png
-    │   │       ├── prev.png
-    │   │       └── success.png
-    │   ├── img
-    │   │   ├── gachoninfo-logo.jpg
-    │   │   └── gachoninfo-logo.png
-    │   ├── js
-    │   │   ├── demo
-    │   │   │   └── datatables-demo.js
-    │   │   ├── juso-api.js
+    .
+    ├── node_modules/
+    ├── web
+    │   ├── bin
+    │   │   └── www
+    │   ├── public
+    │   │   ├── css
+    │   │   │   ├── bootstrap.min.css1
+    │   │   │   ├── login.css
+    │   │   │   ├── notice-write.css
+    │   │   │   ├── notice.css
+    │   │   │   ├── plugins.css
+    │   │   │   ├── register.css
+    │   │   │   └── sb-admin-2.min.css
+    │   │   ├── js
+    │   │   │   ├── juso-api.js
+    │   │   │   ├── login.js
+    │   │   │   ├── notice-detail.js
+    │   │   │   ├── notice-edit.js
+    │   │   │   ├── notice-write.js
+    │   │   │   └── register.js
+    │   │   └── vendor/
+    │   ├── routes
+    │   │   ├── api.js
+    │   │   ├── index.js
     │   │   ├── login.js
-    │   │   ├── notice-detail.js
-    │   │   ├── notice-edit.js
-    │   │   ├── notice-write.js
+    │   │   ├── logout.js
+    │   │   ├── notice.js
     │   │   ├── register.js
-    │   │   └── sb-admin-2.min.js
-    │   └── vendor
-    │       ├── bootstrap
-    │       │   └── js
-    │       │       └── bootstrap.bundle.min.js
-    │       ├── datatables
-    │       │   ├── dataTables.bootstrap4.min.css
-    │       │   ├── dataTables.bootstrap4.min.js
-    │       │   ├── jquery.dataTables.js
-    │       │   ├── jquery.dataTables.min.js
-    │       │   └── jquery.min.js
-    │       ├── fontawesome-free
-    │       │   ├── css
-    │       │   │   └── all.min.css
-    │       │   └── webfonts
-    │       │       ├── fa-brands-400.woff
-    │       │       ├── fa-brands-400.woff2
-    │       │       ├── fa-solid-900.woff
-    │       │       └── fa-solid-900.woff2
-    │       ├── jquery
-    │       │   └── jquery.min.js
-    │       └── jquery-easing
-    │           └── jquery.easing.min.js
-    ├── routes
-    │   ├── api.js
-    │   ├── index.js
-    │   ├── login.js
-    │   ├── logout.js
-    │   ├── notice.js
-    │   ├── register.js
-    │   └── test.js
-    ├── utils
-    │   ├── chk-session.js
-    │   ├── error-message.js
-    │   ├── error.js
-    │   ├── mysql.js
-    │   ├── querystring.js
-    │   └── secret.js
-    ├── views
-    │   ├── inc
-    │   │   ├── footer.ejs
-    │   │   └── sidebar.ejs
-    │   ├── error-page.ejs
-    │   ├── error.ejs
-    │   ├── juso-api.ejs
-    │   ├── login.ejs
-    │   ├── notice-detail.ejs
-    │   ├── notice-edit.ejs
-    │   ├── notice-write.ejs
-    │   ├── notice.ejs
-    │   └── register.ejs
-    ├── sqldump.sql
-    └── app.js
+    │   ├── utils
+    │   │   ├── chk-session.js
+    │   │   ├── error-message.js
+    │   │   ├── error.js
+    │   │   ├── myDAO.js
+    │   │   ├── mysql.js
+    │   │   └── secret.js
+    │   ├── views
+    │   │   ├── inc
+    │   │   │   ├── footer.ejs
+    │   │   │   └── sidebar.ejs
+    │   │   ├── error-page.ejs
+    │   │   ├── error.ejs
+    │   │   ├── juso-api.ejs
+    │   │   ├── login.ejs
+    │   │   ├── notice-detail.ejs
+    │   │   ├── notice-edit.ejs
+    │   │   ├── notice-write.ejs
+    │   │   ├── notice.ejs
+    │   │   └── register.ejs
+    │   └── app.js
+    ├── .gitattributes
+    ├── .gitignore
+    ├── package-lock.json
+    ├── package.json
+    ├── README.md
+    └── sqldump.sql
 
 <br><br><br>
 

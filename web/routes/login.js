@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const client = require('../utils/mysql');
+const myDAO = require('../utils/myDAO');
 
 router.get('/', (req, res) => {
   // 이미 로그인된 경우 홈페이지로
@@ -22,10 +22,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   console.log(req.body);
 
-  const query = 'select * from user where uid=? and pass=?';
-  const queryArgs = [req.body.uid, req.body.pass];
-  console.log(queryArgs);
-  const userInfo = client.query(query, queryArgs)[0];
+  const userInfo = myDAO.selectUser(req.body.uid, req.body.pass);
 
   let message = '로그인 실패';
 
@@ -38,7 +35,6 @@ router.post('/', (req, res) => {
 
   switch (userInfo.user_state) {
     case 'Y':
-      message = '로그인 성공';
       req.session.uid = userInfo.uid;
       req.session.uidx = userInfo.idx;
       req.session.user_name = userInfo.user_name;
