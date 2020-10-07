@@ -37,7 +37,6 @@
     │   │   └── www
     │   ├── public
     │   │   ├── css
-    │   │   │   ├── bootstrap.min.css1
     │   │   │   ├── login.css
     │   │   │   ├── notice-write.css
     │   │   │   ├── notice.css
