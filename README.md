@@ -87,7 +87,7 @@
 
 ### 도커로 돌려보기
 
-- [다운받기](https://github.com/chinsun9/2020-web-test/archive/master.zip)
+- [다운받기](https://github.com/chinsun9/2020-web-test/archive/docker.zip)
 
 ```cmd cmd
 docker-compose up
