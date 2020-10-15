@@ -1,8 +1,9 @@
 # 2020-web-test
 
 - 도커라이징 하였습니다.
-- 기존 프로젝트는 [마스터 브랜치](https://github.com/chinsun9/2020-web-test)를 확인해주세요.
-  <br>
+- 도커라이징 이전의 프로젝트는 [마스터 브랜치](https://github.com/chinsun9/2020-web-test)를 확인해주세요.
+
+<br>
 
 - 회원가입, 로그인, 게시판, 페이지네이션, 게시글 정보 api 제공하는 웹서버를 만들어보았습니다.
 - nodejs express, ejs로 만들었습니다.
