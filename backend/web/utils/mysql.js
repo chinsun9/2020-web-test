@@ -1,4 +1,3 @@
-const secret = require('./secret');
 const mysql = require('sync-mysql');
 let client;
 
@@ -11,6 +10,7 @@ if (process.env.NODE_ENV == 'development') {
     database: 'webtest',
   });
 } else {
+  const secret = require('./secret');
   console.log('ec2');
   client = new mysql(secret);
 }
