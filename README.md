@@ -19,81 +19,23 @@
 
 <br><br><br>
 
+### 도커로 돌려보기
+
+```cmd cmd
+git clone -b docker --single-branch https://github.com/chinsun9/2020-web-test.git
+cd 2020-web-test
+docker-compose up
+```
+
+- localhost:3000
+
 ### ERD
 
 <img src="readmeRes/erd.png">
 
 <br><br><br>
 
-### 디렉터리 구조
-
-    .
-    ├── node_modules/
-    ├── web
-    │   ├── bin
-    │   │   └── www
-    │   ├── public
-    │   │   ├── css
-    │   │   │   ├── login.css
-    │   │   │   ├── notice-write.css
-    │   │   │   ├── notice.css
-    │   │   │   ├── plugins.css
-    │   │   │   ├── register.css
-    │   │   │   └── sb-admin-2.min.css
-    │   │   ├── js
-    │   │   │   ├── juso-api.js
-    │   │   │   ├── login.js
-    │   │   │   ├── notice-detail.js
-    │   │   │   ├── notice-edit.js
-    │   │   │   ├── notice-write.js
-    │   │   │   └── register.js
-    │   │   └── vendor/
-    │   ├── routes
-    │   │   ├── api.js
-    │   │   ├── index.js
-    │   │   ├── login.js
-    │   │   ├── logout.js
-    │   │   ├── notice.js
-    │   │   ├── register.js
-    │   ├── utils
-    │   │   ├── chk-session.js
-    │   │   ├── error-message.js
-    │   │   ├── error.js
-    │   │   ├── myDAO.js
-    │   │   ├── mysql.js
-    │   │   └── secret.js
-    │   ├── views
-    │   │   ├── inc
-    │   │   │   ├── footer.ejs
-    │   │   │   └── sidebar.ejs
-    │   │   ├── error-page.ejs
-    │   │   ├── error.ejs
-    │   │   ├── juso-api.ejs
-    │   │   ├── login.ejs
-    │   │   ├── notice-detail.ejs
-    │   │   ├── notice-edit.ejs
-    │   │   ├── notice-write.ejs
-    │   │   ├── notice.ejs
-    │   │   └── register.ejs
-    │   └── app.js
-    ├── .gitattributes
-    ├── .gitignore
-    ├── package-lock.json
-    ├── package.json
-    ├── README.md
-    └── sqldump.sql
-
 <br><br><br>
-
-### 도커로 돌려보기
-
-- [다운받기](https://github.com/chinsun9/2020-web-test/archive/docker.zip)
-
-```cmd cmd
-docker-compose up
-```
-
-- localhost:3000
 
 ### Node.js 웹 앱 도커라이징
 
