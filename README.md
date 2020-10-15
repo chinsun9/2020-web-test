@@ -1,5 +1,9 @@
 # 2020-web-test
 
+- 도커라이징 하였습니다.
+- 도커라이징한 프로젝트는 [docker 브랜치](https://github.com/chinsun9/2020-web-test/tree/docker)를 확인해주세요.
+  <br>
+  
 - 회원가입, 로그인, 게시판, 페이지네이션, 게시글 정보 api 제공하는 웹서버를 만들어보았습니다.
 - nodejs express, ejs로 만들었습니다.
 - 로컬 작업시 db는 mariadb를 사용했습니다.
