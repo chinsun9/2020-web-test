@@ -51,21 +51,12 @@ router.get('/', (req, res) => {
   // console.log(usernames);
 
   // 시간 포맷 변경
-  if (process.env.NODE_ENV == 'development') {
-    articles.forEach((article) => {
-      article.insert_date = new Intl.DateTimeFormat(
-        'ko-KR',
-        dateFormatOptions
-      ).format(new Date(article.insert_date));
-    });
-  } else {
-    articles.forEach((article) => {
-      let myDate = article.insert_date;
-      article.insert_date = moment(myDate)
-        .add(9, 'hours')
-        .format('MM-DD HH:mm:ss');
-    });
-  }
+  articles.forEach((article) => {
+    let myDate = article.insert_date;
+    article.insert_date = moment(myDate)
+      .add(9, 'hours')
+      .format('MM-DD HH:mm:ss');
+  });
 
   let data = {};
 
@@ -117,21 +108,12 @@ router.get('/search', (req, res) => {
   console.log(usernames);
 
   // 시간 포맷 변경
-  if (process.env.NODE_ENV == 'development') {
-    articles.forEach((article) => {
-      article.insert_date = new Intl.DateTimeFormat(
-        'ko-KR',
-        dateFormatOptions
-      ).format(new Date(article.insert_date));
-    });
-  } else {
-    articles.forEach((article) => {
-      let myDate = article.insert_date;
-      article.insert_date = moment(myDate)
-        .add(9, 'hours')
-        .format('MM-DD HH:mm:ss');
-    });
-  }
+  articles.forEach((article) => {
+    let myDate = article.insert_date;
+    article.insert_date = moment(myDate)
+      .add(9, 'hours')
+      .format('MM-DD HH:mm:ss');
+  });
 
   const data = {};
   data.keyword = keyword;
@@ -170,36 +152,19 @@ router.get('/notice-detail', (req, res) => {
   myDAO.increaseViewNumber(idx);
 
   // 시간 포맷 변경
-  if (process.env.NODE_ENV == 'development') {
-    queryResult.insert_date = new Intl.DateTimeFormat(
-      'ko-KR',
-      dateFormatOptions
-    ).format(new Date(queryResult.insert_date));
 
-    if (queryResult.update_date == '0000-00-00 00:00:00') {
-      console.log('패스');
-      queryResult.update_date = '-';
-    } else {
-      console.log('안패스');
-      queryResult.update_date = new Intl.DateTimeFormat(
-        'ko-KR',
-        dateFormatOptions
-      ).format(new Date(queryResult.update_date));
-    }
+  queryResult.insert_date = moment(queryResult.insert_date)
+    .add(9, 'hours')
+    .format('MM-DD HH:mm:ss');
+
+  if (queryResult.update_date == '0000-00-00 00:00:00') {
+    console.log('패스');
+    queryResult.update_date = '-';
   } else {
-    queryResult.insert_date = moment(queryResult.insert_date)
+    console.log('안패스');
+    queryResult.update_date = moment(queryResult.update_date)
       .add(9, 'hours')
       .format('MM-DD HH:mm:ss');
-
-    if (queryResult.update_date == '0000-00-00 00:00:00') {
-      console.log('패스');
-      queryResult.update_date = '-';
-    } else {
-      console.log('안패스');
-      queryResult.update_date = moment(queryResult.update_date)
-        .add(9, 'hours')
-        .format('MM-DD HH:mm:ss');
-    }
   }
 
   res.render('notice-detail', {
@@ -240,36 +205,19 @@ router.get('/edit', (req, res) => {
   }
 
   // 시간 포맷 변경
-  if (process.env.NODE_ENV == 'development') {
-    queryResult.insert_date = new Intl.DateTimeFormat(
-      'ko-KR',
-      dateFormatOptions
-    ).format(new Date(queryResult.insert_date));
 
-    if (queryResult.update_date == '0000-00-00 00:00:00') {
-      console.log('패스');
-      queryResult.update_date = '-';
-    } else {
-      console.log('안패스');
-      queryResult.update_date = new Intl.DateTimeFormat(
-        'ko-KR',
-        dateFormatOptions
-      ).format(new Date(queryResult.update_date));
-    }
+  queryResult.insert_date = moment(queryResult.insert_date)
+    .add(9, 'hours')
+    .format('MM-DD HH:mm:ss');
+
+  if (queryResult.update_date == '0000-00-00 00:00:00') {
+    console.log('패스');
+    queryResult.update_date = '-';
   } else {
-    queryResult.insert_date = moment(queryResult.insert_date)
+    console.log('안패스');
+    queryResult.update_date = moment(queryResult.update_date)
       .add(9, 'hours')
       .format('MM-DD HH:mm:ss');
-
-    if (queryResult.update_date == '0000-00-00 00:00:00') {
-      console.log('패스');
-      queryResult.update_date = '-';
-    } else {
-      console.log('안패스');
-      queryResult.update_date = moment(queryResult.update_date)
-        .add(9, 'hours')
-        .format('MM-DD HH:mm:ss');
-    }
   }
 
   res.render('notice-edit', {

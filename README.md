@@ -1,17 +1,13 @@
 # 2020-web-test
 
+- 도커라이징 하였습니다.
+- 기존 프로젝트는 [마스터 브랜치](https://github.com/chinsun9/2020-web-test)를 확인해주세요.
+  <br>
+
 - 회원가입, 로그인, 게시판, 페이지네이션, 게시글 정보 api 제공하는 웹서버를 만들어보았습니다.
 - nodejs express, ejs로 만들었습니다.
 - 로컬 작업시 db는 mariadb를 사용했습니다.
 - aws ec2에 올려서 사용할때는 rds로 연결하도록 했습니다.
-
-```json
-  "scripts": {
-    "start": "cross-env NODE_ENV='development' node ./web/bin/www",
-    "ec2": "node ./web/bin/www"
-  }
-```
-
 - 웹화면의 경우 [SB Admin](https://startbootstrap.com/templates/sb-admin/) 부트스트랩을 템플릿을 받아서 수정하였습니다.
 
 <br><br><br>
@@ -88,20 +84,19 @@
 
 <br><br><br>
 
-### 클론해서 돌려보기
+### 도커로 돌려보기
 
 - [다운받기](https://github.com/chinsun9/2020-web-test/archive/master.zip)
-- 디비 생성하기 ; sqldump.sql 의 내용으로 생성
-- nodejs 패키지 설치하기 `npm i`
-- 도로명주소 api key 갱신하기
 
-  ```js
-  // web/views/juso-api.ejs 57번째 줄 수정하기
-  var confmKey = '도로명 주소 api 키 입력하는 곳!';
-  ```
+```cmd cmd
+docker-compose up
+```
 
-- 웹서버 실행하기 `npm start`
-- 브라우저로 접속하기 http://localhost:3000
+- localhost:3000
+
+### Node.js 웹 앱 도커라이징
+
+- https://nodejs.org/ko/docs/guides/nodejs-docker-webapp/
 
 <br><br><br>
 
